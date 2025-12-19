@@ -1,1 +1,2 @@
-10 hello this is goru A 3.21
+You entered: A
+Character: 65

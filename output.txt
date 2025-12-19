@@ -1,1 +1,2 @@
-Odd
+Invalid Input
+odd

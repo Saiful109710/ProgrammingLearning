@@ -1,42 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+
+class Student{
+    public:
+        string nm;
+        int cls;
+        char s;
+        int id;
+        int math_marks;
+        int eng_marks;
+};
+
+bool cmp(Student l, Student r){
+   return  l.math_marks+l.eng_marks == r.math_marks + r.eng_marks ? l.id < r.id : (l.math_marks + l.eng_marks) > (r.math_marks + r.eng_marks);
+}
 int main(){
-    int N;
-    cin >> N;
-    int A[N];
-    for(int i=0;i<N;i++){
-        cin >> A[i];
-    }
+int n;
+cin >> n;
+Student a[n];
+for(int i=0;i<n;i++){
+    cin >> a[i].nm >> a[i].cls >> a[i].s >> a[i].id >> a[i].math_marks >> a[i].eng_marks;
+}
 
-    for(int i=0;i<N-1;i++){
-        for(int j=i+1;j<N;j++){
-            if(A[i]>A[j]){
-                int temp = A[i];
-                A[i] =A[j];
-                A[j] = temp;
-            }
-            
-        }
-    }
+sort(a,a+n,cmp);
 
-    for(int i=0;i<N;i++){
-        cout << A[i] << " ";
-    } 
-    cout << endl;
-
-    for(int i=0;i<N-1;i++){
-        for(int j=i+1;j<N;j++){
-            if(A[i]<A[j]){
-                int temp = A[i];
-                A[i] = A[j];
-                A[j] = temp;
-            }
-        }
-    }
-
-    for(int i=0;i<N;i++){
-        cout << A[i] << " ";
-    }
+for(int j=0;j<n;j++){
+    cout << a[j].nm << " " << a[j].cls << " " << a[j].s << " " << a[j].id << " " << a[j].math_marks << " " << a[j].eng_marks << endl;
+}
 
 return 0;
 }
